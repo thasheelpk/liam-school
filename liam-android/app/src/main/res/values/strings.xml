@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Liam</string>
+
+    <!-- Screen Titles -->
+    <string name="title_dashboard">Profile</string>
+    <string name="title_videos">Courses Available</string>
+    <string name="title_shop">Marketplace</string>
+    <string name="title_login">Liam</string>
+    <string name="subtitle_login">Login into your account</string>
+    <string name="title_sign_up">Sign up for an account</string>
+
+    <!-- Login -->
+    <string name="email_field_hint">Email</string>
+    <string name="password_field_hint">Password</string>
+    <string name="login_signup_hint">Don\'t have an account? Signup</string>
+    <string name="login_button_text">Login</string>
+
+    <!-- Bottom navigation -->
+    <string name="bottom_nav_title_dashboard">Dashboard</string>
+    <string name="bottom_nav_title_store">Marketplace</string>
+    <string name="bottom_nav_title_videos">Courses</string>
+    <string name="video_list_button_title">Course Details</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard_likes_title">Likes</string>
+    <string name="dashboard_downloads_title">Downloads</string>
+    <string name="store_item_download_notification_text">Your download will begin shortly</string>
+    <string name="store_item_favorite_notification_text">You have liked this item</string>
+    <string name="username_field_hint">Username</string>
+    <string name="signup_have_an_account_hint">Already have an account? Sign in</string>
+    <string name="signup_button_text">Create Account</string>
+    <string name="store_list_download_button_description">store_list_download_button</string>
+</resources>

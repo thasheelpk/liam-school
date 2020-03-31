@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.ahmedtikiwa.liam.ui.dashboard.DashboardViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/profile_image"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/dashboardProfileImageBackground"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:padding="@dimen/dashboard_profile_image_frame_padding"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="@dimen/dashboard_profile_image_width"
+                    android:layout_height="@dimen/dashboard_profile_image_height"
+                    app:civ_border_color="#ffffff"
+                    app:civ_border_width="@dimen/dashboard_profile_image_border_width"
+                    app:imageUrl="@{viewModel.userDetails.profileImageUrl}"
+                    tools:src="@drawable/ic_flat_mountains" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/dashboard_total_liams"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center_horizontal"
+                android:text="@{viewModel.userDetails.totalLiams}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profile_image"
+                tools:text="Total Liams" />
+
+            <TextView
+                android:id="@+id/total_likes_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_horizontal"
+                android:layout_marginTop="40dp"
+                android:text="@string/dashboard_likes_title"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/total_downloads_header"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dashboard_total_liams" />
+
+            <TextView
+                android:id="@+id/total_downloads_header"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_horizontal"
+                android:layout_marginTop="40dp"
+                android:text="@string/dashboard_downloads_title"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/total_likes_header"
+                app:layout_constraintTop_toBottomOf="@id/dashboard_total_liams"
+                app:layout_goneMarginStart="@dimen/margin_horizontal" />
+
+            <TextView
+                android:id="@+id/total_likes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_horizontal"
+                android:layout_marginTop="@dimen/margin_vertical"
+                android:gravity="center_horizontal"
+                android:text="@{viewModel.userDetails.totalLikes}"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/total_downloads_header"
+                app:layout_constraintStart_toStartOf="@id/total_likes_header"
+                app:layout_constraintTop_toBottomOf="@id/total_likes_header"
+                tools:text="Downloads" />
+
+            <TextView
+                android:id="@+id/total_downloads"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_horizontal"
+                android:layout_marginTop="@dimen/margin_vertical"
+                android:gravity="center_horizontal"
+                android:text="@{viewModel.userDetails.totalDownloads}"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/total_downloads_header"
+                app:layout_constraintStart_toStartOf="@id/total_downloads_header"
+                app:layout_constraintTop_toBottomOf="@id/total_downloads_header"
+                tools:text="Total Likes" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

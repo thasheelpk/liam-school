@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="storeIem"
+            type="com.ahmedtikiwa.liam.domain.StoreItem" />
+
+        <variable
+            name="downloadListener"
+            type="com.ahmedtikiwa.liam.ui.store.StoreListAdapter.StoreListItemAdapterDownloadListener" />
+
+        <variable
+            name="favoriteListener"
+            type="com.ahmedtikiwa.liam.ui.store.StoreListAdapter.StoreListItemAdapterFavoriteListener" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_horizontal"
+        android:layout_marginEnd="@dimen/margin_horizontal"
+        android:layout_marginBottom="@dimen/margin_vertical"
+        android:background="@android:color/white"
+        android:elevation="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/store_item_thumbnail"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="@dimen/margin_horizontal_half"
+                android:layout_marginEnd="@dimen/margin_horizontal_half"
+                android:contentDescription="@{storeIem.name}"
+                android:scaleType="fitCenter"
+                app:imageUrl="@{storeIem.imageUrl}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_flat_mountains" />
+
+            <TextView
+                android:id="@+id/store_list_item_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_horizontal"
+                android:layout_marginEnd="@dimen/margin_horizontal"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{storeIem.name}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/store_item_thumbnail"
+                tools:text="Video Name" />
+
+            <TextView
+                android:id="@+id/store_list_item_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_horizontal"
+                android:layout_marginEnd="@dimen/margin_horizontal"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{storeIem.price}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/store_list_item_title"
+                tools:text="Video Name" />
+
+            <ImageButton
+                android:id="@+id/download_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{() -> downloadListener.onDownloadClick(storeIem)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/store_list_item_price"
+                app:srcCompat="@drawable/ic_file_download_black_24dp" />
+
+            <ImageButton
+                android:id="@+id/store_list_like_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:contentDescription="@string/store_list_download_button_description"
+                android:focusable="true"
+                android:onClick="@{() -> favoriteListener.onFavoriteClick(storeIem)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/store_list_item_price"
+                app:srcCompat="@drawable/ic_favorite_border_black_24dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>
